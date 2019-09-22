@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sidebar, Icon, Sidenav, Nav, Dropdown, Navbar, Avatar } from 'rsuite';
 import ges from './../../assets/img/gest1.png';
+import { Link } from 'react-router-dom';
 
   const iconStyles = {
     width: 56,
@@ -59,6 +60,10 @@ export default class NavBar extends React.Component{
         });
       }
 
+    goTo = (link) =>{
+        this.props.history.push(link);
+    }
+
     render() {
         const { expand } = this.state;
         return (
@@ -81,31 +86,31 @@ export default class NavBar extends React.Component{
                     appearance="subtle">
                         <Sidenav.Body>
                             <Nav>
-                                <Nav.Item eventKey="1" active icon={<Icon icon="dashboard" />}>
+                                <Nav.Item onClick={()=>this.goTo('/home')} eventKey="1" active icon={<Icon icon="dashboard" />}>
                                     Dashboard
                                 </Nav.Item>
-                                
-                                <Nav.Item eventKey="2" icon={<Icon icon="peoples" />}>
+
+                                <Nav.Item onClick={()=>this.goTo('/admin')} as={Link} to="/admin" eventKey="2" icon={<Icon icon="peoples" />}>
                                     Admin
                                 </Nav.Item>
 
-                                <Nav.Item eventKey="2" icon={<Icon icon="industry" />}>
+                                <Nav.Item onClick={()=>this.goTo('/companies')} eventKey="2" icon={<Icon icon="industry" />}>
                                     Companies
                                 </Nav.Item>
 
-                                <Nav.Item eventKey="2" icon={<Icon icon="money" />}>
+                                <Nav.Item eventKey="2" onClick={()=>this.goTo('/currencies')} icon={<Icon icon="money" />}>
                                     Currencies
                                 </Nav.Item>
 
-                                <Nav.Item eventKey="2" icon={<Icon icon="order-form" />}>
+                                <Nav.Item eventKey="2" onClick={()=>this.goTo('/plans')} icon={<Icon icon="order-form" />}>
                                     Plans
                                 </Nav.Item>
 
-                                <Nav.Item eventKey="2" icon={<Icon icon="tag" />}>
+                                <Nav.Item eventKey="2" onClick={()=>this.goTo('/types')} icon={<Icon icon="tag" />}>
                                     Company Types
                                 </Nav.Item>
 
-                                <Nav.Item eventKey="2" icon={<Icon icon="project" />}>
+                                <Nav.Item eventKey="2" onClick={()=>this.goTo('/logs')} icon={<Icon icon="project" />}>
                                     Logs
                                 </Nav.Item>
                                 {/* <Dropdown

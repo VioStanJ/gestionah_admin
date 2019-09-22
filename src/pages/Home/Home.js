@@ -12,10 +12,12 @@ export default class Home extends React.Component{
     render() {
         return (
             <Container style={{display:'flex',flexDirection:'row',height:'100vh'}}>
-            <NavBar/>
+            <NavBar history={this.props.history}/>
             <Container>
                 <TheHeader/>
-                <Content style={{backgroundColor: '#F4F5F7'}}>Content</Content>
+                <Content style={{backgroundColor: '#F4F5F7'}}>
+
+                </Content>
             </Container>
             </Container>
         );
