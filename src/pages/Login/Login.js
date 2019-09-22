@@ -24,7 +24,7 @@ export default class Login extends React.Component{
                         
                     </Col>
                     <Col sm={12} lg={8} md={12} xs={24} style={fh}>
-                        <Form style={{height:'100%',display:'flex',justifyContent:'center'}}>
+                        <Form style={{height:'100%',display:'flex',justifyContent:'center'}} onSubmit={this.submit}>
                             <FlexboxGrid justify="center" style={{flexDirection:'column'}} align="middle">
                                 <Row>
                                     <Avatar circle size="lg" src={ges} alt="GS"/>
@@ -39,7 +39,7 @@ export default class Login extends React.Component{
                                     <FormControl name="password" type="password" required/>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Button type="submit" appearance="primary" onClick={this.submit}>Submit</Button>
+                                    <Button type="submit" appearance="primary" >Submit</Button>
                                 </FormGroup>
                             </FlexboxGrid>
                         </Form>
