@@ -1,6 +1,7 @@
 import React from 'react';
 import TheHeader from '../../Containers/Header/Header';
-import { Container } from 'rsuite';
+import { Container, Header, Content, Footer, Sidebar } from 'rsuite';
+import NavBar from '../../Containers/NavBar/NavBar';
 
 export default class Home extends React.Component{
     
@@ -10,8 +11,12 @@ export default class Home extends React.Component{
     
     render() {
         return (
+            <Container style={{display:'flex',flexDirection:'row',height:'100vh'}}>
+            <NavBar/>
             <Container>
                 <TheHeader/>
+                <Content style={{backgroundColor: '#F4F5F7'}}>Content</Content>
+            </Container>
             </Container>
         );
     }

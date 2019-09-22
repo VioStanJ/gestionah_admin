@@ -22,15 +22,14 @@ export default class TheHeader extends React.Component{
             boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.75)'
         }
         return (
-            <Header style={hed}>
-                <Navbar appearance="inverse">
+            <Header id="BAC">
+                <Navbar style={{backgroundColor: '#6abf69',}} appearance="inverse">
                 <Navbar.Header style={mrg}>
-                    <Avatar className="navbar-brand logo" src={ges} circle/>
                 </Navbar.Header>
                 <Navbar.Body>
                     <Nav pullRight  style={mrg}>
                         <h6 style={eml}>place@email.here</h6>
-                        <Avatar className="navbar-brand logo" src={user}/>
+                        <Avatar className="navbar-brand logo" src={user} circle/>
                     </Nav>
                 </Navbar.Body>
                 </Navbar>
