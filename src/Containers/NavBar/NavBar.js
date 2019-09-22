@@ -17,7 +17,7 @@ const NavToggle = ({ expand, onChange }) => {
     return (
       <Navbar appearance="subtle" className="nav-toggle" style={{backgroundColor: navcolor,position: 'absolute',
       bottom: 0,
-      width:valw }}>
+      width:valw }} stacked>
         <Navbar.Body>
           <Nav>
             <Dropdown

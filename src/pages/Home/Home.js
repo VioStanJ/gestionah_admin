@@ -15,7 +15,7 @@ export default class Home extends React.Component{
             <NavBar history={this.props.history}/>
             <Container>
                 <TheHeader/>
-                <Content style={{backgroundColor: '#F4F5F7'}}>
+                <Content style={{backgroundColor: '#F4F5F7',overflow: 'auto',}}>
 
                 </Content>
             </Container>
