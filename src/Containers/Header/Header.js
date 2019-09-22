@@ -1,7 +1,6 @@
 import React from 'react';
 import { Header, Navbar, Nav, Avatar } from 'rsuite';
 import user from './../../assets/img/user.png';
-import ges from './../../assets/img/gest1.png';
 
 export default class TheHeader extends React.Component{
     render() {
@@ -18,9 +17,9 @@ export default class TheHeader extends React.Component{
             right: '8px',
             fontWeight: '100'
         }
-        const hed  = {
-            boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.75)'
-        }
+        // const hed  = {
+        //     boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.75)'
+        // }
         return (
             <Header id="BAC">
                 <Navbar style={{backgroundColor: '#6abf69',}} appearance="inverse">

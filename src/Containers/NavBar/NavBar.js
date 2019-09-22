@@ -113,20 +113,7 @@ export default class NavBar extends React.Component{
                                 <Nav.Item eventKey="2" onClick={()=>this.goTo('/logs')} icon={<Icon icon="project" />}>
                                     Logs
                                 </Nav.Item>
-                                {/* <Dropdown
-                                    eventKey="4"
-                                    trigger="hover"
-                                    title="Settings"
-                                    icon={<Icon icon="gear-circle" />}
-                                    placement="rightStart"
-                                >
-                                    <Dropdown.Item eventKey="4-1">Applications</Dropdown.Item>
-                                    <Dropdown.Item eventKey="4-2">Websites</Dropdown.Item>
-                                    <Dropdown.Item eventKey="4-3">Channels</Dropdown.Item>
-                                    <Dropdown.Item eventKey="4-4">Tags</Dropdown.Item>
-                                    <Dropdown.Item eventKey="4-5">Versions</Dropdown.Item>
-                                </Dropdown> */}
-                                </Nav>
+                            </Nav>
                         </Sidenav.Body>
                 </Sidenav>
                 <NavToggle expand={expand} onChange={this.handleToggle} />
@@ -143,5 +130,4 @@ const headerStyles = {
     color: ' #fff',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
-    
   };

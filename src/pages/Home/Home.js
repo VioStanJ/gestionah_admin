@@ -1,6 +1,6 @@
 import React from 'react';
 import TheHeader from '../../Containers/Header/Header';
-import { Container, Header, Content, Footer, Sidebar } from 'rsuite';
+import { Container, Content, } from 'rsuite';
 import NavBar from '../../Containers/NavBar/NavBar';
 
 export default class Home extends React.Component{
