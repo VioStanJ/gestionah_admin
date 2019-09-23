@@ -8,7 +8,7 @@ export default class GroupActions extends React.Component{
                 <FlexboxGrid justify="center">
                     <ButtonGroup size="lg">
                         <Button appearance="primary">New</Button>
-                        <Button appearance="primary">Save</Button>
+                        <Button appearance="primary" type="submit">Save</Button>
                         <Button color="orange">Delete</Button>
                     </ButtonGroup>
                 </FlexboxGrid>

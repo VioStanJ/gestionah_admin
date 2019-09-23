@@ -5,7 +5,7 @@ import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Admin from './pages/Admin/Admin';
 import Company from './pages/Company/Company';
-import Currency from './pages/Currency/Currency';
+import Plan from './pages/Plan/Plan';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/home" component={Home}/>
         <Route exact path="/admin" component={Admin}/>
         <Route exact path="/companies" component={Company}/>
-        <Route exact path="/currencies" component={Currency}/>
+        <Route exact path="/plans" component={Plan}/>
       </Switch>
     </BrowserRouter>
   );

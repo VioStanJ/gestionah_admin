@@ -98,16 +98,8 @@ export default class NavBar extends React.Component{
                                     Companies
                                 </Nav.Item>
 
-                                <Nav.Item eventKey="2" onClick={()=>this.goTo('/currencies')} icon={<Icon icon="money" />}>
-                                    Currencies
-                                </Nav.Item>
-
                                 <Nav.Item eventKey="2" onClick={()=>this.goTo('/plans')} icon={<Icon icon="order-form" />}>
                                     Plans
-                                </Nav.Item>
-
-                                <Nav.Item eventKey="2" onClick={()=>this.goTo('/types')} icon={<Icon icon="tag" />}>
-                                    Company Types
                                 </Nav.Item>
 
                                 <Nav.Item eventKey="2" onClick={()=>this.goTo('/logs')} icon={<Icon icon="project" />}>

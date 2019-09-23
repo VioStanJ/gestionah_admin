@@ -1,13 +1,13 @@
 import React from 'react';
 import TheHeader from '../../Containers/Header/Header';
-import { Container, Content, Col, Form, Row, FormGroup, ControlLabel, Input, Dropdown, } from 'rsuite';
+import { Container, Content, Col, Form, Row, FormGroup, ControlLabel, Input, InputNumber, } from 'rsuite';
 import NavBar from '../../Containers/NavBar/NavBar';
 import GroupActions from '../../Containers/GroupActions/GroupActions';
 
-export default class Currency extends React.Component{
+export default class Plan extends React.Component{
     
     componentDidMount = () => {
-      document.title = "Currencies";
+      document.title = "Plans";
     };
     
     render() {
@@ -32,7 +32,7 @@ export default class Currency extends React.Component{
                             <Row style={{marginBottom:'20px'}}>
                                 <Col lg={24}>
                                     <FormGroup>
-                                        <ControlLabel>Sign</ControlLabel>
+                                        <ControlLabel>Price</ControlLabel>
                                         <Input type="text" required/>
                                     </FormGroup>
                                 </Col>
@@ -41,13 +41,26 @@ export default class Currency extends React.Component{
                             <Row style={{marginBottom:'20px'}}>
                                 <Col lg={24}>
                                     <FormGroup>
-                                        <ControlLabel>Contry</ControlLabel>
-                                        <Dropdown title="Select the country currency">
-                                            <Dropdown.Item>1</Dropdown.Item>
-                                            <Dropdown.Item>2</Dropdown.Item>
-                                            <Dropdown.Item>3</Dropdown.Item>
-                                            <Dropdown.Item>4</Dropdown.Item>
-                                        </Dropdown>
+                                        <ControlLabel>Day Value</ControlLabel>
+                                        <InputNumber/>
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+
+                            <Row style={{marginBottom:'20px'}}>
+                                <Col lg={24}>
+                                    <FormGroup>
+                                        <ControlLabel>Discount</ControlLabel>
+                                        <InputNumber/>
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+
+                            <Row style={{marginBottom:'20px'}}>
+                                <Col lg={24}>
+                                    <FormGroup>
+                                        <ControlLabel>Description</ControlLabel>
+                                        <Input componentClass="textarea" row={3} required/>
                                     </FormGroup>
                                 </Col>
                             </Row>
