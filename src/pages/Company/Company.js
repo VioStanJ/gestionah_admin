@@ -1,33 +1,42 @@
 import React from 'react';
 import TheHeader from '../../Containers/Header/Header';
-import { Container, Content, Row, Col, Form, FormGroup, ControlLabel, Avatar, Input, DatePicker, ButtonGroup, Button, FlexboxGrid, } from 'rsuite';
+import { Container, Content, Row, Col, Form, FormGroup, ControlLabel, Avatar, Input, ButtonGroup, Button, FlexboxGrid, Dropdown, Toggle, IconButton, Icon,} from 'rsuite';
 import NavBar from '../../Containers/NavBar/NavBar';
 import TheTable from '../../Containers/TheTable/TheTable';
+import User from '../../Containers/User/User';
 
-export default class Admin extends React.Component{
+export default class Company extends React.Component{
     
     componentDidMount = () => {
-      document.title = "Admin";
+      document.title = "Companies";
     };
     
     state = {
-        cells : ['id','FullName','Email'],
+        addUser : false,
+        cells : ['id','Company','Domain','Type'],
           data: [
               {
                   id:1,
-                  FullName : 'Jean',
-                  Email : 'jean@gmail.com',
+                  Company : 'Jean',
+                  Domain : 'jean@gmail.com',
+                  Type:'TH'
               },
               {
                 id:2,
-                FullName:'Louise',
-                Email : 'louise@gmail.com   '
+                Company:'Louise',
+                Domain : 'louise@gmail.com',
+                Type:'HJl'
               }
             ]
     }
 
+    close = () => {
+        this.setState({addUser:false});
+    }
+
     render() {
         return (
+            <>
             <Container style={{display:'flex',flexDirection:'row',height:'100vh'}}>
             <NavBar history={this.props.history}/>
             <Container>
@@ -36,72 +45,59 @@ export default class Admin extends React.Component{
                         <Col lg={12}>
                             <Form style={{padding:'10px'}}>
                                 <Row style={{marginBottom:'20px'}}>
-                                    <Col lg={12}>
-                                        <Avatar size="lg" />
+                                    <Col lg={24}>
+                                        <FlexboxGrid justify="center">
+                                            <Avatar size="lg" />
+                                        </FlexboxGrid>
                                     </Col>
-                                    <Col lg={12}>
-                                        <FormGroup style={{width:'100%'}}>
-                                            <ControlLabel>Full Name</ControlLabel>
-                                            <Input type="text" required/>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-
-                                <Row style={{marginBottom:'20px'}}>
-                                    <Col lg={12}>
-                                        <FormGroup>
-                                            <ControlLabel>E-mail</ControlLabel>
-                                            <Input type="email" required/>
-                                        </FormGroup>
-                                    </Col>
-
-                                    <Col lg={12}>
-                                        <FormGroup>
-                                            <ControlLabel>Phone</ControlLabel>
-                                            <Input type="email" required/>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-
-                                <Row style={{marginBottom:'20px'}}>
-                                    <Col lg={12}>
-                                        <FormGroup>
-                                            <ControlLabel>ID Number</ControlLabel>
-                                            <Input type="email" required/>
-                                        </FormGroup>
-                                    </Col>
-
-                                    <Col lg={12}>
-                                        <FormGroup>
-                                            <ControlLabel>Birthday</ControlLabel>
-                                            <DatePicker style={{ width: 280 }} />
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-
-                                <Row style={{marginBottom:'20px'}}>
-                                    <Col lg={12}>
-                                        <FormGroup>
-                                            <ControlLabel>Password</ControlLabel>
-                                            <Input type="password" required/>
-                                        </FormGroup>
-                                    </Col>
-
-                                    <Col lg={12}>
-                                        <FormGroup>
-                                            <ControlLabel>Retype Password</ControlLabel>
-                                            <Input type="password" required/>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-                                <Row style={{marginBottom:'20px'}}>
                                     <Col lg={24}>
                                         <FormGroup>
-                                            <ControlLabel>Phrase factor</ControlLabel>
-                                            <Input type="email" required/>
+                                            <ControlLabel>Company Name</ControlLabel>
+                                            <Input name="tex" type="text" required/>
                                         </FormGroup>
                                     </Col>
+                                    
                                 </Row>
+
+                                <Row style={{marginBottom:'20px'}}>
+                                    <Col lg={12}>
+                                        <Dropdown title="Company Type" color="green">
+                                            <Dropdown.Item>New File</Dropdown.Item>
+                                            <Dropdown.Item>New File with Current Profile</Dropdown.Item>
+                                            <Dropdown.Item>Download As...</Dropdown.Item>
+                                            <Dropdown.Item>Export PDF</Dropdown.Item>
+                                            <Dropdown.Item>Export HTML</Dropdown.Item>
+                                            <Dropdown.Item>Settings</Dropdown.Item>
+                                            <Dropdown.Item>About</Dropdown.Item>
+                                        </Dropdown>
+                                    </Col>
+
+                                    <Col lg={12}>
+                                        <center>
+                                            <FormGroup>
+                                                <ControlLabel>Active</ControlLabel>
+                                                <Toggle defaultChecked />
+                                            </FormGroup>
+                                        </center>
+                                    </Col>
+                                </Row>
+
+                                <Row style={{marginBottom:'20px'}}>
+                                    <Col lg={12}>
+                                        <center>
+                                                <Toggle defaultChecked style={{marginRight:'5px',marginTop: 5,}}/>
+                                                <span style={{position:'relative',top:'3px'}}>Pattente</span>
+                                        </center>
+                                    </Col>
+
+                                    <Col lg={12}>
+                                            <IconButton icon={<Icon icon="user" />} color="blue" 
+                                                circle style={{marginRight:'5px'}}
+                                                onClick={()=>this.setState({addUser:true})}/>
+                                             Add User
+                                    </Col>
+                                </Row>
+
                                 
                                 <h4>Adress</h4>
                                 <Row style={{marginBottom:'20px'}}>
@@ -150,6 +146,10 @@ export default class Admin extends React.Component{
                 </Content>
             </Container>
             </Container>
+            {/* MODAL */}
+            <User show={this.state.addUser} close={this.close} />
+            {/* END Modal */}
+            </>
         );
     }
 }
