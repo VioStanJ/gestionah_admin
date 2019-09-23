@@ -2,6 +2,7 @@ import React from 'react';
 import TheHeader from '../../Containers/Header/Header';
 import { Container, Content, Row, Col, Form, FormGroup, ControlLabel, Avatar, Input, DatePicker, ButtonGroup, Button, FlexboxGrid, } from 'rsuite';
 import NavBar from '../../Containers/NavBar/NavBar';
+import TheTable from '../../Containers/TheTable/TheTable';
 
 export default class Admin extends React.Component{
     
@@ -9,6 +10,22 @@ export default class Admin extends React.Component{
       document.title = "Admin";
     };
     
+    state = {
+        cells : ['id','FullName','Email'],
+          data: [
+              {
+                  id:1,
+                  FullName : 'Jean',
+                  Email : 'jean@gmail.com',
+              },
+              {
+                id:2,
+                FullName:'Louise',
+                Email : 'louise@gmail.com'
+              }
+            ]
+    }
+
     render() {
         return (
             <Container style={{display:'flex',flexDirection:'row',height:'100vh'}}>
@@ -115,9 +132,11 @@ export default class Admin extends React.Component{
                         <Col lg={12}>
                             <Row>
                                 <Col lg={24}>
-                                    
+                                    <br/>
+                                    <TheTable cells={this.state.cells} data={this.state.data}/>
                                 </Col>
                                 <Col lg={24}>
+                                    <br/>
                                     <FlexboxGrid justify="center">
                                         <ButtonGroup size="lg">
                                             <Button appearance="primary">New</Button>

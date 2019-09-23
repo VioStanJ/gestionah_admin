@@ -22,7 +22,7 @@ export default class TheHeader extends React.Component{
         // }
         return (
             <Header id="BAC">
-                <Navbar style={{backgroundColor: '#6abf69',}} appearance="inverse">
+                <Navbar style={{backgroundColor: '#37C2FA',}} appearance="inverse">
                 <Navbar.Header style={mrg}>
                 </Navbar.Header>
                 <Navbar.Body>
