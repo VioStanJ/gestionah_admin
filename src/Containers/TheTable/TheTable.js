@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'rsuite';
 
-const { Column, HeaderCell, Cell, Pagination } = Table;
+const { Column, HeaderCell, Cell } = Table;
 
 export default class TheTable extends React.Component{
 

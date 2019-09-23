@@ -1,9 +1,10 @@
 import React from 'react';
 import TheHeader from '../../Containers/Header/Header';
-import { Container, Content, Row, Col, Form, FormGroup, ControlLabel, Avatar, Input, ButtonGroup, Button, FlexboxGrid, Dropdown, Toggle, IconButton, Icon,} from 'rsuite';
+import { Container, Content, Row, Col, Form, FormGroup, ControlLabel, Avatar, Input,FlexboxGrid, Dropdown, Toggle, IconButton, Icon,} from 'rsuite';
 import NavBar from '../../Containers/NavBar/NavBar';
 import TheTable from '../../Containers/TheTable/TheTable';
 import User from '../../Containers/User/User';
+import GroupActions from '../../Containers/GroupActions/GroupActions';
 
 export default class Company extends React.Component{
     
@@ -42,8 +43,8 @@ export default class Company extends React.Component{
             <Container>
                 <TheHeader/>
                 <Content style={{backgroundColor: '#F4F5F7',overflow: 'auto',}}>
+                <Form style={{padding:'10px'}}>
                         <Col lg={12}>
-                            <Form style={{padding:'10px'}}>
                                 <Row style={{marginBottom:'20px'}}>
                                     <Col lg={24}>
                                         <FlexboxGrid justify="center">
@@ -123,7 +124,7 @@ export default class Company extends React.Component{
                                         </FormGroup>
                                     </Col>
                                 </Row>
-                            </Form>
+                            
                         </Col>
                         <Col lg={12}>
                             <Row>
@@ -133,16 +134,11 @@ export default class Company extends React.Component{
                                 </Col>
                                 <Col lg={24}>
                                     <br/>
-                                    <FlexboxGrid justify="center">
-                                        <ButtonGroup size="lg">
-                                            <Button appearance="primary">New</Button>
-                                            <Button appearance="primary">Save</Button>
-                                            <Button color="orange">Delete</Button>
-                                        </ButtonGroup>
-                                    </FlexboxGrid>
+                                    <GroupActions/>
                                 </Col>
                             </Row>
                         </Col>
+                        </Form>
                 </Content>
             </Container>
             </Container>
