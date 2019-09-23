@@ -3,6 +3,7 @@ import TheHeader from '../../Containers/Header/Header';
 import { Container, Content, Col, Form, Row, FormGroup, ControlLabel, Input, InputNumber, } from 'rsuite';
 import NavBar from '../../Containers/NavBar/NavBar';
 import GroupActions from '../../Containers/GroupActions/GroupActions';
+import PlanCard from '../../Components/PlanCard';
 
 export default class Plan extends React.Component{
     
@@ -67,7 +68,12 @@ export default class Plan extends React.Component{
                         <br/><br/>
                         <GroupActions/>
                     </Col>
-                    <Col sm={12}></Col>
+                    <Col sm={12}>
+                        <br/>
+                        <Row style={{marginLeft:'15px',marginRight:'15px'}}>
+                            <PlanCard />
+                        </Row>
+                    </Col>
                     </Form>
                 </Content>
             </Container>
