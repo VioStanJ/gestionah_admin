@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const initialState = {
     admin : {
-        fullname   : '',
+        full_name   : '',
         email       : '',
         id          : 0,
         id_number   : '',
@@ -22,7 +22,7 @@ const authReducer = (state = initialState , action)=>{
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + action.payload.token;
             return {
                 ...state,
-                user : action.payload
+                admin : action.payload
             };
         case 'BEARER':
             return {
