@@ -42,10 +42,7 @@ class Login extends React.Component{
     Pass = (e) => {
         e.preventDefault();
         Axios.post('/v1/adminlogin',this.state.form).then((response)=>{
-            console.log(response,'ADMIIN');
-            
             if(response.data.success){
-                console.log(this.props,'PROPS');
                 const rp = response.data.admin;
                 let usr = {...this.props.profile};
                 usr.birthday = rp.birthday;
@@ -136,7 +133,7 @@ class Login extends React.Component{
                 </Modal.Body>
                 <Modal.Footer>
                     <Button type="submit" appearance="primary">
-                    Ok
+                    Connect
                     </Button>
                     <Button onClick={this.close} appearance="subtle">
                     Cancel

@@ -11,8 +11,9 @@ import ges from './../../assets/img/gest1.png';
 
   const navcolor = 'white';
 
-const NavToggle = ({ expand, onChange }) => {
+const NavToggle = ({ expand, onChange ,go}) => {
     const valw = expand ? 260 : 56;
+    
     return (
       <Navbar appearance="subtle" className="nav-toggle" style={{backgroundColor: navcolor,position: 'absolute',
       bottom: 0,
@@ -28,7 +29,7 @@ const NavToggle = ({ expand, onChange }) => {
             >
               <Dropdown.Item>Help</Dropdown.Item>
               <Dropdown.Item>Settings</Dropdown.Item>
-              <Dropdown.Item>Sign out</Dropdown.Item>
+              <Dropdown.Item  onClick={()=>go('/signout')}>Sign out</Dropdown.Item>
             </Dropdown>
           </Nav>
   
@@ -107,7 +108,7 @@ export default class NavBar extends React.Component{
                             </Nav>
                         </Sidenav.Body>
                 </Sidenav>
-                <NavToggle expand={expand} onChange={this.handleToggle} />
+                <NavToggle expand={expand} onChange={this.handleToggle} go={this.goTo}/>
               </Sidebar>
         );
     }

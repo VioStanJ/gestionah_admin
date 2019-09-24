@@ -8,6 +8,7 @@ import Company from './pages/Company/Company';
 import Plan from './pages/Plan/Plan';
 import {useDispatch} from 'react-redux';
 import axios from 'axios';
+import SignOut from './pages/SignOut';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/admin" component={Admin}/>
         <Route exact path="/companies" component={Company}/>
         <Route exact path="/plans" component={Plan}/>
+        <Route exact path="/signout" component={SignOut}/>
       </Switch>
     </BrowserRouter>
   );

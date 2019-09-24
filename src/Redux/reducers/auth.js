@@ -27,14 +27,14 @@ const authReducer = (state = initialState , action)=>{
         case 'BEARER':
             return {
                 ...state,
-                user : localStorage.getItem('auth_gest_adm')
+                admin : localStorage.getItem('auth_gest_adm')
             }
         case 'OUT':
-            localStorage.setItem('auth_gest_adm',JSON.stringify(initialState.user));
+            localStorage.setItem('auth_gest_adm',JSON.stringify(initialState.admin));
             axios.defaults.headers.common['Authorization'] = null;
             return {
                 ...state,
-                user : initialState.user
+                admin : initialState.admin
             }
         default :
             return state;

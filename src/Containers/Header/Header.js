@@ -1,8 +1,21 @@
 import React from 'react';
 import { Header, Navbar, Nav, Avatar } from 'rsuite';
 import user from './../../assets/img/user.png';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
-export default class TheHeader extends React.Component{
+class TheHeader extends React.Component{
+
+    state = {
+        logon : false
+    }
+
+    componentDidMount = () => {
+        if(!this.props.profile.credentials){
+            this.setState({logon:true});
+        }
+    };
+    
     render() {
         const mrg = {
             marginLeft: '20px',
@@ -17,17 +30,17 @@ export default class TheHeader extends React.Component{
             right: '8px',
             fontWeight: '100'
         }
-        // const hed  = {
-        //     boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.75)'
-        // }
+        if(this.state.logon){
+            return <Redirect to="/"/>
+        }
         return (
-            <Header id="BAC">
+            <Header>
                 <Navbar style={{backgroundColor: '#37C2FA',}} appearance="inverse">
                 <Navbar.Header style={mrg}>
                 </Navbar.Header>
                 <Navbar.Body>
                     <Nav pullRight  style={mrg}>
-                        <h6 style={eml}>place@email.here</h6>
+                        <h6 style={eml}>{this.props.profile.email}</h6>
                         <Avatar className="navbar-brand logo" src={user} circle/>
                     </Nav>
                 </Navbar.Body>
@@ -36,3 +49,11 @@ export default class TheHeader extends React.Component{
         );
     }
 }
+
+const mapStateToProps = function(state) {
+    return {
+      profile: state.auth.admin,
+    }
+  }
+  
+export default connect(mapStateToProps)(TheHeader);
