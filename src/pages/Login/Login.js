@@ -127,7 +127,7 @@ class Login extends React.Component{
                     
                         <center>
                             <FormGroup>
-                                <FormControl type="text"
+                                <FormControl type="password"
                                     value={this.state.form.double_pass}
                                     onChange={(e)=>this.handle(e,'double_pass')}/>
                             </FormGroup>
