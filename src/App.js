@@ -6,8 +6,24 @@ import Home from './pages/Home/Home';
 import Admin from './pages/Admin/Admin';
 import Company from './pages/Company/Company';
 import Plan from './pages/Plan/Plan';
+import {useDispatch} from 'react-redux';
+import axios from 'axios';
 
 function App() {
+
+  const user = JSON.parse(localStorage.getItem('auth_gest_adm'));
+  const dispatch = useDispatch();
+
+  
+  try {
+    dispatch({type:'ADMIN',payload:user});  
+    if(user.credentials){
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + user.token;
+    }
+  } catch (error) {
+    console.log(error,'ADMIN Unauthorize');
+  }
+  
   return (
     <BrowserRouter>
       <Switch>
