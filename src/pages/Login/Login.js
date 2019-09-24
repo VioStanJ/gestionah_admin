@@ -5,12 +5,26 @@ import ges from './../../assets/img/gest1.png';
 
 export default class Login extends React.Component{
 
+    state = {
+        form:{
+            email : '',
+            password : '',
+            double_pass : '',
+        }
+    }
+
     componentDidMount = () => {
       document.title="Login";
     };
     
     submit = () =>{
         this.props.history.push('home');
+    }
+
+    handle = (e,index) => {
+        let ff = this.state.form;
+        ff[index] = e;
+        this.setState({forn:ff});
     }
 
     render() {
@@ -32,11 +46,15 @@ export default class Login extends React.Component{
 
                                 <FormGroup>
                                     <ControlLabel>Email</ControlLabel>
-                                    <FormControl name="email" type="email" required/>
+                                    <FormControl name="email" type="email" required
+                                        value={this.state.form.email}
+                                        onChange={(e)=>this.handle(e,'email')}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>Password</ControlLabel>
-                                    <FormControl name="password" type="password" required/>
+                                    <FormControl name="password" type="password" required
+                                        value={this.state.form.password}
+                                        onChange={(e)=>this.handle(e,'password')}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Button type="submit" appearance="primary" >Submit</Button>

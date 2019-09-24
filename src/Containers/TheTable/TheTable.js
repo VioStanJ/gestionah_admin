@@ -17,8 +17,8 @@ export default class TheTable extends React.Component{
                     >
                     
                     {
-                        this.props.cells.map((cl)=>{
-                            return <Column align="center" fixed>
+                        this.props.cells.map((cl,index)=>{
+                            return <Column key={index} align="center" fixed>
                             <HeaderCell>{cl}</HeaderCell>
                             <Cell dataKey={cl} />
                         </Column>;
