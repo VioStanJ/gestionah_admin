@@ -5,15 +5,13 @@ import NavBar from '../../Containers/NavBar/NavBar';
 import TheTable from '../../Containers/TheTable/TheTable';
 import User from '../../Containers/User/User';
 import GroupActions from '../../Containers/GroupActions/GroupActions';
+import Axios from 'axios';
 
 export default class Company extends React.Component{
     
-    componentDidMount = () => {
-      document.title = "Companies";
-    };
-    
     state = {
         addUser : false,
+        types : [],
         cells : ['id','Company','Domain','Type'],
           data: [
               {
@@ -30,6 +28,15 @@ export default class Company extends React.Component{
               }
             ]
     }
+
+    componentDidMount = () => {
+      document.title = "Companies";
+      Axios.get('/v1/get_types').then((response)=>{
+        this.setState({types:response.data.types});
+      }).catch((error)=>{
+        console.log(error);
+      });
+    };
 
     close = () => {
         this.setState({addUser:false});
@@ -63,13 +70,11 @@ export default class Company extends React.Component{
                                 <Row style={{marginBottom:'20px'}}>
                                     <Col lg={12}>
                                         <Dropdown title="Company Type" color="green">
-                                            <Dropdown.Item>New File</Dropdown.Item>
-                                            <Dropdown.Item>New File with Current Profile</Dropdown.Item>
-                                            <Dropdown.Item>Download As...</Dropdown.Item>
-                                            <Dropdown.Item>Export PDF</Dropdown.Item>
-                                            <Dropdown.Item>Export HTML</Dropdown.Item>
-                                            <Dropdown.Item>Settings</Dropdown.Item>
-                                            <Dropdown.Item>About</Dropdown.Item>
+                                            {
+                                                this.state.types.map((item)=>{
+                                                    return  <Dropdown.Item key={item.id}>{item.label}</Dropdown.Item>
+                                                })
+                                            }                                            
                                         </Dropdown>
                                     </Col>
 
@@ -77,7 +82,7 @@ export default class Company extends React.Component{
                                         <center>
                                             <FormGroup>
                                                 <ControlLabel>Active</ControlLabel>
-                                                <Toggle defaultChecked />
+                                                <Toggle />{/*defaultChecked*/}
                                             </FormGroup>
                                         </center>
                                     </Col>

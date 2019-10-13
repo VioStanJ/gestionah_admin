@@ -11,10 +11,9 @@ export default class TheTable extends React.Component{
                 <Table
                     height={400}
                     data={this.props.data}
-                    onRowClick={data => {
-                        console.log(data);
-                    }}
-                    >
+                    onRowClick={data => 
+                        this.props.get(data)
+                    } >
                     
                     {
                         this.props.cells.map((cl,index)=>{
